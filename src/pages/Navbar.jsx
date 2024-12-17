@@ -40,92 +40,42 @@ function Navbar() {
             )}
           </svg>
         </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden fixed inset-0 bg-gray-800 bg-opacity-50 z-40 transition-all ${
-          isOpen ? "block" : "hidden"
-        }`}
-        onClick={() => setIsOpen(false)}
-      >
         <div
-          className={`bg-white w-3/4 h-full overflow-y-auto transform ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          } transition-all duration-300`}
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } lg:flex lg:space-x-6 lg:space-y-0 space-y-4`}
         >
-          <div className="p-6">
-            <a
-              href="/error"
-              className="block text-gray-800 hover:text-gray-600 text-lg mb-4"
-              onClick={() => setIsOpen(false)} // Close menu when link is clicked
-            >
-              AUCTIONS
-            </a>
-            <a
-              href="/error"
-              className="block text-gray-800 hover:text-gray-600 text-lg mb-4"
-              onClick={() => setIsOpen(false)} // Close menu when link is clicked
-            >
-              BLOG
-            </a>
-            <a
-              href="/error"
-              className="block text-gray-800 hover:text-gray-600 text-lg mb-4"
-              onClick={() => setIsOpen(false)} // Close menu when link is clicked
-            >
-              ABOUT
-            </a>
-            <a
-              href="/error"
-              className="block text-gray-800 hover:text-gray-600 text-lg mb-4"
-              onClick={() => setIsOpen(false)} // Close menu when link is clicked
-            >
-              CONTACT
-            </a>
-            <a
-              href="/login"
-              className="block bg-gray-800 text-white text-lg py-2 px-4 rounded-lg hover:bg-gray-600 mb-4"
-              onClick={() => setIsOpen(false)} // Close menu when link is clicked
-            >
-              LOGIN / REGISTER
-            </a>
-          </div>
+          <a
+            href="/error"
+            className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
+          >
+            AUCTIONS
+          </a>
+          <a
+            href="/error"
+            className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
+          >
+            BLOG
+          </a>
+          <a
+            href="/error"
+            className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
+          >
+            ABOUT
+          </a>
+          <a
+            href="/error"
+            className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
+          >
+            CONTACT
+          </a>
+          <a
+            href="/login"
+            className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all text-center"
+          >
+            LOGIN / REGISTER
+          </a>
         </div>
-      </div>
-
-      {/* Desktop Menu */}
-      <div className="hidden lg:flex lg:space-x-6 lg:space-y-0 space-y-4">
-        <a
-          href="/error"
-          className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
-        >
-          AUCTIONS
-        </a>
-        <a
-          href="/error"
-          className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
-        >
-          BLOG
-        </a>
-        <a
-          href="/error"
-          className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
-        >
-          ABOUT
-        </a>
-        <a
-          href="/error"
-          className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
-        >
-          CONTACT
-        </a>
-        <a
-          href="/login"
-          className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all text-center"
-        >
-          LOGIN / REGISTER
-        </a>
       </div>
     </nav>
   );
