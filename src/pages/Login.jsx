@@ -41,7 +41,7 @@ function Login() {
   };
 
   return (
-    <div className="container mx-auto mt-12 p-4">
+    <div className="container mx-auto mt-20 p-4 ">
       <form
         onSubmit={isLogin ? handleLogin : handleRegister}
         className="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg"
