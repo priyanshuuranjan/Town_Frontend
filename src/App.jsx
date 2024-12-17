@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import SellerDashboard from './components/SellerDashboard';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Card from './pages/Card';
+import Error from './pages/Error';
 
 
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path='/card' element={<Card/>}/>
       <Route path='SellerDashboard' element={<SellerDashboard/>}/>
+      <Route path='/error' element={<Error/>}/>
     </Routes>
     </Router>
      

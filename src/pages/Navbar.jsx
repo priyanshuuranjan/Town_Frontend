@@ -46,31 +46,31 @@ function Navbar() {
           } lg:flex lg:space-x-6 lg:space-y-0 space-y-4`}
         >
           <a
-            href="#auctions"
+            href="/error"
             className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
           >
             AUCTIONS
           </a>
           <a
-            href="#blog"
+            href="/error"
             className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
           >
             BLOG
           </a>
           <a
-            href="#about"
+            href="/error"
             className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
           >
             ABOUT
           </a>
           <a
-            href="#contact"
+            href="/error"
             className="text-gray-800 hover:text-gray-600 transition-all text-lg lg:text-base"
           >
             CONTACT
           </a>
           <a
-            href="#login"
+            href="/login"
             className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all text-center"
           >
             LOGIN / REGISTER
