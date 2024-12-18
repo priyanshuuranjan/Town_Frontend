@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "./pages/Navbar";
 import Home from "./pages/Home";
 import SellerDashboard from "./components/SellerDashboard";
 import OfferForm from "./components/OfferForm";
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Card from "./pages/Card";
 import Error from "./pages/Error";
 import Login from "./pages/Login";
 
 function App() {
-  const [selectedProduct, setSelectedProduct] = useState(null); // State to track the selected product
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
     <div className="App">
