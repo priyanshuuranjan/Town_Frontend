@@ -1,18 +1,15 @@
-import  { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table, Button, Form, Container, Row, Col } from "react-bootstrap";
 
-
-const initialOffers = [
-  { id: 1, product: "Antique Table", offerPrice: "$2,000", date: "2024-06-16", time: "10:30 AM", status: "Pending" },
-  { id: 2, product: "Vintage Sofa", offerPrice: "$3,500", date: "2024-06-15", time: "02:00 PM", status: "Accepted" },
-  { id: 3, product: "Wooden Cabinet", offerPrice: "$1,800", date: "2024-06-14", time: "04:15 PM", status: "Rejected" },
-  { id: 4, product: "Cane Chair Set", offerPrice: "$800", date: "2024-06-13", time: "09:45 AM", status: "Countered" },
-];
-
 const SellerDashboard = () => {
-  const [offers, setOffers] = useState(initialOffers);
+  const [offers, setOffers] = useState([]);
   const [filters, setFilters] = useState({ date: "", product: "", status: "" });
+
+  useEffect(() => {
+    const savedOffers = JSON.parse(localStorage.getItem("offers")) || initialOffers;
+    setOffers(savedOffers);
+  }, []);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +19,8 @@ const SellerDashboard = () => {
   const filteredOffers = offers.filter((offer) => {
     return (
       (filters.date === "" || offer.date === filters.date) &&
-      (filters.product === "" || offer.product.toLowerCase().includes(filters.product.toLowerCase())) &&
+      (filters.product === "" ||
+        offer.product.toLowerCase().includes(filters.product.toLowerCase())) &&
       (filters.status === "" || offer.status === filters.status)
     );
   });
@@ -32,6 +30,8 @@ const SellerDashboard = () => {
       offer.id === id ? { ...offer, status: newStatus } : offer
     );
     setOffers(updatedOffers);
+
+    localStorage.setItem("offers", JSON.stringify(updatedOffers));
   };
 
   return (
@@ -65,7 +65,11 @@ const SellerDashboard = () => {
         <Col md={4}>
           <Form.Group controlId="filterStatus">
             <Form.Label>Status</Form.Label>
-            <Form.Select name="status" value={filters.status} onChange={handleFilterChange}>
+            <Form.Select
+              name="status"
+              value={filters.status}
+              onChange={handleFilterChange}
+            >
               <option value="">All</option>
               <option value="Pending">Pending</option>
               <option value="Accepted">Accepted</option>

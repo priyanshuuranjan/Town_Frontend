@@ -1,24 +1,17 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Container,
-  Row,
-  Col,
-  Card as BootstrapCard,
-  Button,
-} from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col, Card as BootstrapCard, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Lamp from "../Assets/Royal.jpg";
-import pottery from "../Assets/pottery.jpeg";
-import Pottery from "../Assets/Chairs.jpg";
-import Dinner from "../Assets/Cabinet.jpg";
-import sofa from "../Assets/sofa1.jpg";
-import OfferForm from "../components/OfferForm";
+import Pottery from "../Assets/pottery.jpeg";
+import Chairs from "../Assets/Chairs.jpg";
+import Cabinet from "../Assets/Cabinet.jpg";
+import Sofa from "../Assets/sofa1.jpg";
 
 const products = [
   {
     id: 1,
     image: Lamp,
-    title:
-      "Large Collection of Royal Copenhagen Blue Flower Braided, 98 Pieces",
+    title: "Large Collection of Royal Copenhagen Blue Flower Braided, 98 Pieces",
     price: "$2500",
     status: "",
   },
@@ -31,28 +24,35 @@ const products = [
   },
   {
     id: 3,
-    image: Dinner,
+    image: Chairs,
     title: "Antique Spanish Colonial Geometric Front Walnut Cabinet with Inlay",
     price: "$2,400",
     status: "",
   },
   {
     id: 4,
-    image: pottery,
+    image: Cabinet,
     title: "Antique Spanish Colonial Geometric Front Walnut Cabinet with Inlay",
     price: "$2560",
     status: "",
   },
   {
     id: 5,
-    image: sofa,
+    image: Sofa,
     title: "Antique Spanish Colonial Geometric Front Walnut Cabinet with Inlay",
     price: "$2960",
     status: "",
   },
 ];
 
-const Card = () => {
+const Card = ({ setSelectedProduct }) => {
+  const navigate = useNavigate();
+
+  const handleOffer = (product) => {
+    setSelectedProduct(product);
+    navigate("/offer");
+  };
+
   return (
     <Container className="py-5 mt-20">
       <Row className="g-4">
@@ -79,11 +79,12 @@ const Card = () => {
                 )}
               </BootstrapCard.Body>
               <BootstrapCard.Footer className="bg-white">
-                <Button variant="primary" className="w-100 mb-2">
-                  ADD TO CART
-                </Button>
-                <Button variant="info" className="w-100 text-white">
-                  <OfferForm />
+                <Button
+                  variant="info"
+                  className="w-100 text-white"
+                  onClick={() => handleOffer(product.title)}
+                >
+                  MAKE AN OFFER
                 </Button>
               </BootstrapCard.Footer>
             </BootstrapCard>
