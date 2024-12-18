@@ -6,8 +6,6 @@ import Card from './pages/Card';
 import Error from './pages/Error';
 import Login from './pages/Login';
 
-
-
 function App() {
   return (
     <div className="App">
